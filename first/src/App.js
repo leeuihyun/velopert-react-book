@@ -5,6 +5,7 @@ import EventPractice from "./EventPractice";
 import Say from "./Say";
 import EventPractice2 from "./EventPractice2";
 import EventPractice3 from "./EventPractice3";
+import ValidationSample from "./ValidationSample";
 class App extends Component {
   render() {
     return (
@@ -13,7 +14,7 @@ class App extends Component {
         {/*<Counter />*/}
         {/*<Say></Say>*/}
         {/*<EventPractice />*/}
-        {<EventPractice3 />}
+        {<ValidationSample />}
       </div>
     );
   }
