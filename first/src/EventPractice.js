@@ -4,7 +4,14 @@ export default class eventPractice extends Component {
   state = {
     data: "",
   };
-
+  onChangeMethod = (event) => {
+    this.setState({
+      data: event.target.value,
+    });
+  };
+  clickButton = () => {
+    alert(this.state.data);
+  };
   render() {
     let data;
     return (
@@ -12,21 +19,10 @@ export default class eventPractice extends Component {
         <h1>이벤트 연습</h1>
         <input
           type="text"
-          placeholder="write here"
-          name="data"
-          onChange={(e) => {
-            this.setState({
-              data: e.target.value,
-            });
-          }}
+          placeholder="Write please"
+          onChange={this.onChangeMethod}
         />
-        <button
-          onClick={() => {
-            alert(this.state.data);
-          }}
-        >
-          확인
-        </button>
+        <button onClick={this.clickButton}>Button</button>
       </div>
     );
   }
