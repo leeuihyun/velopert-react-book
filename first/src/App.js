@@ -4,6 +4,7 @@ import Counter from "./Counter";
 import EventPractice from "./EventPractice";
 import Say from "./Say";
 import EventPractice2 from "./EventPractice2";
+import EventPractice3 from "./EventPractice3";
 class App extends Component {
   render() {
     return (
@@ -12,7 +13,7 @@ class App extends Component {
         {/*<Counter />*/}
         {/*<Say></Say>*/}
         {/*<EventPractice />*/}
-        {<EventPractice2 />}
+        {<EventPractice3 />}
       </div>
     );
   }
