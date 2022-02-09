@@ -13,7 +13,6 @@ export default class eventPractice extends Component {
     alert(this.state.data);
   };
   render() {
-    let data;
     return (
       <div>
         <h1>이벤트 연습</h1>
