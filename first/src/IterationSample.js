@@ -7,25 +7,37 @@ const IterationSample = () => {
     { id: 3, text: "눈" },
     { id: 4, text: "바람" },
   ]);
-  const [next_id, setId] = useState(names.length);
+  const length = names.length;
+  const [next_id, setId] = useState(length + 1);
   const [next_text, setText] = useState("");
   const onChange = (e) => {
     setText(e.target.value);
   };
   const onClick = (e) => {
-    setId(next_id + 1);
     const next = names.concat({
       id: next_id,
       text: next_text,
     });
+    setId(next_id + 1);
     setNames(next);
     setText("");
   };
-  const list = names.map((item) => <li key={item.id}>{item.text}</li>);
+
+  const onRemove = (_id) => {
+    console.log(_id);
+    const next1 = names.filter((item) => item.id !== _id);
+
+    setNames(next1);
+  };
+  const list = names.map((item) => (
+    <li key={item.id} onClick={() => onRemove(item.id)}>
+      {item.text}
+    </li>
+  ));
   return (
     <div>
       <input type="text" onChange={onChange} />
-      <button onClick={onClick}>button</button>
+      <button onClick={() => onClick}>button</button>
       <ul>{list}</ul>
     </div>
   );
