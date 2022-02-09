@@ -8,17 +8,12 @@ import EventPractice3 from "./EventPractice3";
 import ValidationSample from "./ValidationSample";
 import ValidationSample2 from "./ValidationSample2";
 import ScrollBox from "./ScrollBox";
+import IterationSample from "./IterationSample";
 class App extends Component {
   render() {
     return (
       <div>
-        {/*<MyComponent name="이의현">React</MyComponent>*/}
-        {/*<Counter />*/}
-        {/*<Say></Say>*/}
-        {/*<EventPractice />*/}
-        {/*<ValidationSample2 />*/}
-        <ScrollBox ref={(ref) => (this.scBox = ref)} />
-        <button onClick={() => this.scBox.scrollToBottom}>Button</button>
+        <IterationSample></IterationSample>
       </div>
     );
   }
