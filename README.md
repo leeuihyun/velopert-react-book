@@ -116,3 +116,20 @@ export default IterationSample;
 > 위의 코드와 같이 useState를 이런식으로 사용할 수도 있다 데이터 추가 버전.
 
 ---
+
+> useEffect
+
+> > useEffect 는 클래스형 컴포넌트의 componentDidMount와 componentDidUpdate 를 합친 형태로 봐도 무방하다
+> > componentDidMount와 componentDidUpdate 의 의미는 각각 첫렌더링을 마친후와 업데이트될 때 (props,state) 호출되는 함수이다.
+> > useEffect를 마운트 될 때만 쓰기 위해서는 함수의 두번째 파라미터에 []빈배열을 넣어주면 된다.(처음 렌더링 될때만 실행이 된다.);
+> > 특정 상황에서 useEffect를 하고 싶다면 함수의 두번째 파라미터 []안에 검사하고 싶은 값을 넣으면 된다 (아래와 같다.)
+
+```java script
+
+useEffect(()=>{
+    console.log(name);
+}, [name]);
+
+```
+
+---
