@@ -1,19 +1,24 @@
-import MyComponent from "./MyComponent";
 import react, { Component } from "react";
-import Counter from "./Counter";
-import EventPractice from "./EventPractice";
-import Say from "./Say";
-import EventPractice2 from "./EventPractice2";
-import EventPractice3 from "./EventPractice3";
-import ValidationSample from "./ValidationSample";
-import ValidationSample2 from "./ValidationSample2";
-import ScrollBox from "./ScrollBox";
-import IterationSample from "./IterationSample";
+import LifeCycleSample from "./LifeCycleSample";
+
+function getRandomColor() {
+  return "#" + Math.floor(Math.random() * 16777215).toString(16);
+}
 class App extends Component {
+  state = {
+    color: "#000000",
+  };
+  onClick = () => {
+    this.setState({
+      color: getRandomColor(),
+    });
+  };
+
   render() {
     return (
       <div>
-        <IterationSample></IterationSample>
+        <button onClick={this.onClick}>색 변경</button>
+        <LifeCycleSample color={this.state.color}></LifeCycleSample>
       </div>
     );
   }
