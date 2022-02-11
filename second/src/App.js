@@ -1,8 +1,9 @@
 import AverageTest from "./AverageTest";
+import AverageTest3 from "./AverageTest3";
 function App() {
   return (
     <div>
-      <AverageTest />
+      <AverageTest3 />
     </div>
   );
 }
