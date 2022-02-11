@@ -1,18 +1,18 @@
 # 리액트를 다루는 기술 study
 
-> props
+> ### props
 >
 > > 컴포넌트가 사용되는 과정에서 부모 컴포넌트가 설정하는 값 (컴포넌트 자신은 props를 읽기 전용으로만 사용 가능)
 
 ---
 
-> state
+> ### state
 >
 > > 컴포넌트 내부에서 바뀔 수 있는 값
 
 ---
 
-> defaultProps and propTypes 꼭 필요한가 ?
+> ## defaultProps and propTypes 꼭 필요한가 ?
 >
 > > React를 사용하여 큰 규모의 프로젝트를 진행하여 협업을 하게 된다면 어떠한 props가 필요한지 쉽게 알 수 있어 개발 능률이 좋아질 것이다.
 
@@ -42,7 +42,7 @@ const [first,second] = arr;
 
 ---
 
-> useState 사용법
+> ### useState 사용법
 
 ```java script
 
@@ -117,7 +117,7 @@ export default IterationSample;
 
 ---
 
-> useEffect
+> ### useEffect
 
 > > useEffect 는 클래스형 컴포넌트의 componentDidMount와 componentDidUpdate 를 합친 형태로 봐도 무방하다
 > > componentDidMount와 componentDidUpdate 의 의미는 각각 첫렌더링을 마친후와 업데이트될 때 (props,state) 호출되는 함수이다.
@@ -131,5 +131,27 @@ useEffect(()=>{
 }, [name]);
 
 ```
+
+---
+
+> ### useRef 사용법
+
+```java script
+const inputRef = useRef(null);
+```
+
+```java script
+
+<input type = "text" placeholder = "Write number" ref = {inputRef}>
+
+```
+
+> > 위와 같은식으로 input 에 ref를 설정해주면 후에 inputRef.current.focus() 로 포커스를 옮기거나 다른 기능들을 할 수 있다.
+
+---
+
+> ### css
+
+> > sass, scss, CSSModule, js styling
 
 ---
