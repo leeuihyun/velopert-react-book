@@ -2,7 +2,7 @@ import React from 'react';
 import TodoInsert from './components/TodoInsert';
 import TodoTemplate from './components/TodoTemplate';
 import TodoList from './components/TodoList';
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
 function App() {
   const [todos, setTodos] = useState([
@@ -22,10 +22,31 @@ function App() {
       checked: true,
     },
   ]);
+
+  const nextId = useRef(4);
+  const onInsert = useCallback(
+    (text) => {
+      const todo = {
+        id: nextId.current,
+        text,
+        checked: false,
+      };
+      setTodos(todos.concat(todo));
+      nextId.current += 1; // nextId + 1
+    },
+    [todos],
+  );
+  const onRemove = useCallback(
+    (id) => {
+      const newTodos = todos.filter((item) => item.id !== id);
+      setTodos(newTodos);
+    },
+    [todos],
+  );
   return (
     <TodoTemplate>
-      <TodoInsert />
-      <TodoList todos={todos} />
+      <TodoInsert onInsert={onInsert} />
+      <TodoList todos={todos} onRemove={onRemove} />
     </TodoTemplate>
   );
 }
