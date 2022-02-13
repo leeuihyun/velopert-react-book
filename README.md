@@ -158,6 +158,9 @@ const inputRef = useRef(null);
 
 > 일정 관리 프로젝트 (Simple) 
 > TodoTemplate.js : 화면을 가운데 정렬 시키며 일정관리를 보여준다.
+
 > TodoInsert.js : 새로운 항목 입력 및 추가 가능 컴포넌트 
+
 > TodoListItem.js : 각 할 일의 정보를 보여주는 컴포넌트, todo 객체를 props로 받아와 상태에 따라 달라지는 스타일UI를 구성한다.
+
 > TodoList.js : todos 배열을 props로 받아와서 array의 함수를 이용하여 여러개의 TodoListItem 컴포넌트로 나누어 구성한다.
