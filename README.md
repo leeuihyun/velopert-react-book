@@ -164,3 +164,6 @@ const inputRef = useRef(null);
 > TodoListItem.js : 각 할 일의 정보를 보여주는 컴포넌트, todo 객체를 props로 받아와 상태에 따라 달라지는 스타일UI를 구성한다.
 
 > TodoList.js : todos 배열을 props로 받아와서 array의 함수를 이용하여 여러개의 TodoListItem 컴포넌트로 나누어 구성한다.
+
+> TodoTemplate.js에서 생각해야할 부분은 TodoTemplate div는 className으로 제목과 본문을 나누고 App.js 에서 호출한 TodoTemplate의 children을 props로 받아서 본문(클래스네임)에서 보여준다
+> 
