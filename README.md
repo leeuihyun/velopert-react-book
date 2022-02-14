@@ -156,14 +156,32 @@ const inputRef = useRef(null);
 
 ---
 
-> 일정 관리 프로젝트 (Simple) 
+> ### 일정 관리 프로젝트 (Simple)
+>
 > TodoTemplate.js : 화면을 가운데 정렬 시키며 일정관리를 보여준다.
 
-> TodoInsert.js : 새로운 항목 입력 및 추가 가능 컴포넌트 
+> TodoInsert.js : 새로운 항목 입력 및 추가 가능 컴포넌트
 
 > TodoListItem.js : 각 할 일의 정보를 보여주는 컴포넌트, todo 객체를 props로 받아와 상태에 따라 달라지는 스타일UI를 구성한다.
 
 > TodoList.js : todos 배열을 props로 받아와서 array의 함수를 이용하여 여러개의 TodoListItem 컴포넌트로 나누어 구성한다.
 
 > TodoTemplate.js에서 생각해야할 부분은 TodoTemplate div는 className으로 제목과 본문을 나누고 App.js 에서 호출한 TodoTemplate의 children을 props로 받아서 본문(클래스네임)에서 보여준다
-> 
+
+> App.js 에서 함수들을 만들어주고 props로 TodoInsert and TodoTemplate에 함수들을 props로 전달한다.
+> 하위 컴포넌트에서 받은 props를 이용하여 처리를 해준다.
+
+---
+
+> ### SPA
+
+> SPA => Single Page Application 의 약자이다.
+
+> Single Page 라고 해서 화면은 한 종류가 아니다. 페이지에는 주소상태에 따라 다양한 화면을 보여줄 수 있음
+> 다른 화면을 다른 주소에 보여주는 것을 [라우팅] 이라고 한다.
+> 터미널에 yarn add react-router-dom
+> react에 라우터를 적용할 때는 react-router-dom src/index.js파일의 <App/>을 BrowserRouter 라는 컴포넌트를 사용하여 감싸면 된다.
+> 찾은 오류 : react-router-dom 이 버전이 최신화가 되면서 yarn add react-router-dom이 아닌 yarn add react-router-dom@5.3.0
+> 이렇게 버전을 다운그레이드 시켜서 진행했다.
+
+---
