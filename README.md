@@ -185,3 +185,102 @@ const inputRef = useRef(null);
 > 이렇게 버전을 다운그레이드 시켜서 진행했다.
 
 ---
+
+> ### Route 기본 설정
+
+```java script
+
+<Route path="/" component={Home} exact={true} />
+<Route path={["/about", "/info"]} component={About} />
+
+```
+
+> ### Link 기본 설정
+
+> > <Link to = "경로"></Link>
+
+---
+
+> ### Link와 params 를 이용
+
+> [Profile.js]
+
+```java script
+<Route path = "/profile/:username" component = {Profile}/>
+<Link to = "/profile/vanc">이의현 link</Link>
+
+```
+
+> [App.js]
+
+```java script
+
+const data = {
+  vanc : {
+    name : "이의현",
+    desc : "리액트를 사용하는 유저입니다",
+  }
+};
+function Profile({match}){
+  const {username} = match.params;
+  const profile = data[username];
+  if(!profile) {
+    return <div> 존재 하지 않습니다</div>
+  }
+  ...
+}
+
+```
+
+---
+
+> ### URL 쿼리
+
+> > url 쿼리를 사용하기 위해서는 yarn add qs // 해당 라이브러리를 설치해야 한다.
+
+> ### 외부 api 받아오기 async await axios 사용
+
+```java script
+
+import React from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+
+function App() {
+  const [data, setData] = useState(null);
+  const onClick = async () => {
+    try {
+      const response = await axios.get(
+        'https://newsapi.org/v2/top-headlines?country=kr&apiKey=d5acc892bd7744ffbc8d2bcb88f9be49',
+      );
+      setData(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  return (
+    <div>
+      <div>
+        <button onClick={onClick}>불러오기</button>
+      </div>
+      {data && (
+        <textarea
+          rows={7}
+          value={JSON.stringify(data, null, 2)}
+          readOnly={true}
+        />
+      )}
+    </div>
+  );
+}
+
+export default App;
+
+
+```
+
+---
+
+> ### news-api
+
+>
