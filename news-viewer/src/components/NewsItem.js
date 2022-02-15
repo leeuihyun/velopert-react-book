@@ -26,18 +26,18 @@ const NewsItemBlock = styled.div`
     margin-top: 0.5rem;
     white-space: normal;
   }
-  $ + $ {
+  & + & {
     margin-top: 3rem;
   }
 `;
 function NewsItem({ article }) {
-  const { title, description, url, urlToimage } = article;
+  const { title, description, url, urlToImage } = article;
   return (
     <NewsItemBlock>
-      {urlToimage && (
+      {urlToImage && (
         <div className="thumbnail">
           <a href={url} target="_blank" rel="noopener noreferrer">
-            <img src={urlToimage} alt="thumbnail" />
+            <img src={urlToImage} alt="thumbnail" />
           </a>
         </div>
       )}
