@@ -20,20 +20,32 @@ const NewsListBlock = styled.div`
 function NewsList() {
   const [articles, setArticle] = useState(null);
   const [loading, setLoading] = useState(false);
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        'https://newsapi.org/v2/top-headlines?country=kr&apiKey=d5acc892bd7744ffbc8d2bcb88f9be49',
+      );
+      setArticle(response.data.articles);
+    } catch (e) {
+      console.log(e);
+    }
+    setLoading(false);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get(
-          'https://newsapi.org/v2/top-headlines?country=kr&apiKey=d5acc892bd7744ffbc8d2bcb88f9be49',
-        );
-        setArticle(response.data.articles);
-      } catch (e) {
-        console.log(e);
-      }
-      setLoading(false);
-    };
-    fetchData();
+    setLoading(true);
+    axios
+      .get(
+        'https://newsapi.org/v2/top-headlines?country=kr&apiKey=d5acc892bd7744ffbc8d2bcb88f9be49',
+      )
+      .then((res) => {
+        setArticle(res.data.articles);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    setLoading(false);
+    //fetchData();
   }, []);
   if (loading) {
     return <NewsListBlock>대기중...</NewsListBlock>;
