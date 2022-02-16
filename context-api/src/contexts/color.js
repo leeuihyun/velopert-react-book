@@ -22,7 +22,7 @@ const ColorProvider = ({ children }) => {
     <ColorContext.Provider value={value}>{children}</ColorContext.Provider>
   );
 };
-
+//Consumer = ColorContext.Consumer 의미이다.
 const { Consumer: ColorConsumer } = ColorContext;
 export { ColorProvider, ColorConsumer };
 export default ColorContext;
