@@ -283,4 +283,83 @@ export default App;
 
 > ### news-api
 
->
+> > NewsList.js
+
+```java script
+
+import React from 'react';
+import NewsItem from './NewsItem';
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const NewsListBlock = styled.div`
+  box-sizing: border-box;
+  padding-bottom: 3rem;
+  width: 768px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+`;
+
+function NewsList({ category }) {
+  const [articles, setArticle] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        'https://newsapi.org/v2/top-headlines?country=kr&apiKey=d5acc892bd7744ffbc8d2bcb88f9be49',
+      );
+      setArticle(response.data.articles);
+    } catch (e) {
+      console.log(e);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    const query = category === 'all' ? '' : `&category=${category}`;
+    axios
+      .get(
+        `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=d5acc892bd7744ffbc8d2bcb88f9be49`,
+      )
+      .then((res) => {
+        setArticle(res.data.articles);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    setLoading(false);
+    //fetchData();
+  }, [category]);
+  if (loading) {
+    return <NewsListBlock>대기중...</NewsListBlock>;
+  }
+  if (!articles) {
+    return null;
+  }
+  return (
+    <NewsListBlock>
+      {articles.map((article) => (
+        <NewsItem key={article.url} article={article} />
+      ))}
+    </NewsListBlock>
+  );
+}
+
+export default NewsList;
+
+
+```
+
+> App.js에서 props로 category 값을 주고 categories.js 에서 누르면 카테고리가 변경되기 때문에,
+> 변경된 카테고리에 해당된 뉴스목록들을 query 로 지정해서 받아오게 한다. null 은 all 로 표시해서 따로 누르지 않을 경우는
+> 모든 뉴스목록을 가져오게 된다.
+
+---
