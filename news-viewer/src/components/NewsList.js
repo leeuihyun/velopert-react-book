@@ -17,7 +17,7 @@ const NewsListBlock = styled.div`
   }
 `;
 
-function NewsList() {
+function NewsList({ category }) {
   const [articles, setArticle] = useState(null);
   const [loading, setLoading] = useState(false);
   const fetchData = async () => {
@@ -32,11 +32,13 @@ function NewsList() {
     }
     setLoading(false);
   };
+
   useEffect(() => {
     setLoading(true);
+    const query = category === 'all' ? '' : `&category=${category}`;
     axios
       .get(
-        'https://newsapi.org/v2/top-headlines?country=kr&apiKey=d5acc892bd7744ffbc8d2bcb88f9be49',
+        `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=d5acc892bd7744ffbc8d2bcb88f9be49`,
       )
       .then((res) => {
         setArticle(res.data.articles);
@@ -46,7 +48,7 @@ function NewsList() {
       });
     setLoading(false);
     //fetchData();
-  }, []);
+  }, [category]);
   if (loading) {
     return <NewsListBlock>대기중...</NewsListBlock>;
   }
