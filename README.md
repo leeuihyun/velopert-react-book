@@ -377,5 +377,47 @@ export default NewsList;
 > > 컨테이너 컴포넌트 : 리덕스와 연동되어 있는 컴포넌트로 리덕스로부터 상태를 받아 오기도 하고 리덕스 스토어에 액션을 디스패치하기도 한다.
 > >
 > > > (이러한 패턴이 필수는 아니지만 유지보수와 재사용성이 높아진다.)
+>
+> > redux를 사용하기 위한 흐름은 다음과 같다.
+> > 우선 프레젠테이셔널 컴포넌트를 만들어서 틀을 잡는다.
+> > 이제 Ducks 패턴을 사용하여 리듀서를 작성한 코드를 쓴다 => 리듀서를 작성한 코드를 '모듈'이라고 한다.
+> >
+> > 1.  아래의 간단한 코딩과 같이 액션 타입을 정의한다.
+
+```java script
+const INCREASE = 'module/INCREASE';
+const DECREASE = 'module/DECREASE';
+```
 
 ---
+
+> > 2.  위와 같이 정의한 후 액션 생성 함수를 만든다. 맨 마지막 insert 액션 생성 함수와 같이 매개변수를 넣어서 사용가능하다.
+
+```java script
+
+export const increase = () => ({
+  type : INCREASE
+})
+export const decrease = () => ({
+  type : DECREASE
+})
+export const insert = (text) = ({
+  type : INSERT,
+  todo : [
+    id : id++,
+    text,
+    done : false
+  ]
+});
+```
+
+> > > 이제는 리액트 애플리케이션에 리덕스를 적용할 차례이다.
+> > > src 의 index.js에서 {createStore}를 이용하여 스토어를 생성한다.
+
+```java script
+
+const store = createStore(rootReducer);
+
+```
+
+> > > Provider 컴포넌트를 사용하여 프로젝트에 리덕스를 적용한다.
