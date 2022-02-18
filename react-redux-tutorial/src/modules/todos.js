@@ -34,22 +34,22 @@ const initialState = {
 
 const todos = handleActions(
   {
-    [CHANGE_INPUT]: (state, action) => ({
+    [CHANGE_INPUT]: (state, { payload: input }) => ({
       ...state,
-      input: action.payload,
+      input: input,
     }),
-    [INSERT]: (state, action) => ({
+    [INSERT]: (state, { payload: todo }) => ({
       ...state,
-      todos: state.todos.concat(action.payload),
+      todos: state.todos.concat(todo),
     }),
-    [REMOVE]: (state, action) => ({
+    [REMOVE]: (state, { payload: id }) => ({
       ...state,
-      todos: state.todos.filter((todo) => todo.id !== action.payload),
+      todos: state.todos.filter((todo) => todo.id !== id),
     }),
-    [TOGGLE]: (state, action) => ({
+    [TOGGLE]: (state, { payload: id }) => ({
       ...state,
       todos: state.todos.map((todo) =>
-        todo.id === action.payload ? { ...todo, done: !todo.done } : todo,
+        todo.id === id ? { ...todo, done: !todo.done } : todo,
       ),
     }),
   },
