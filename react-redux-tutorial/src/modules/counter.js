@@ -1,10 +1,14 @@
-import React from 'react';
-
 const INCREASE = 'counter/INCREASE';
 const DECREASE = 'counter/DECREASE';
-export const increase = () => ({ type: INCREASE });
+//액션 생성
+//export const increase = () => ({ type: INCREASE });
 export const decrease = () => ({ type: DECREASE });
-
+//액션 생성 함수
+export function increase() {
+  return {
+    type: INCREASE,
+  };
+}
 const initialState = {
   number: 0,
 };

@@ -3,24 +3,24 @@ const INSERT = 'todos/INSERT';
 const TOGGLE = 'todos/TOGGLE';
 const REMOVE = 'todos/REMOVE';
 
-const changeInput = (input) => ({
+export const changeInput = (input) => ({
   type: CHANGE_INPUT,
   input,
 });
 let id = 3;
-const insert = (text) => ({
+export const insert = (text) => ({
   type: INSERT,
   todo: {
-    id: id + 1,
+    id: id++,
     text,
     done: false,
   },
 });
-const toggle = (id) => ({
+export const toggle = (id) => ({
   type: TOGGLE,
   id,
 });
-const remove = (id) => ({
+export const remove = (id) => ({
   type: REMOVE,
   id,
 });
