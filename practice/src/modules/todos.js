@@ -1,4 +1,5 @@
 import { createAction, handleActions } from "redux-actions";
+import produce from "immer";
 
 const INSERT = "modules/INSERT";
 const REMOVE = "modules/REMOVE";
@@ -27,31 +28,30 @@ const initialState = {
     },
     {
       id: 2,
-      text: "second",
+      text: "Front-end 개발자가 되자",
       done: false,
     },
   ],
 };
 const todos = handleActions(
   {
-    [INSERT]: (state, action) => ({
+    [INSERT]: (state, { payload: todo }) => ({
       ...state,
-      todos: state.todos.concat(action.payload),
+      todos: state.todos.concat(todo),
     }),
-    [REMOVE]: (state, action) => ({
+    [REMOVE]: (state, { payload: id }) => ({
       ...state,
-      todos: state.todos.filter((todo) => todo.id !== action.payload),
+      todos: state.todos.filter((todo) => todo.id !== id),
     }),
-    [ON_CHANGE]: (state, action) => ({
+    [ON_CHANGE]: (state, { payload: input }) => ({
       ...state,
-      input: action.payload,
+      input,
     }),
-    [TOGGLE]: (state, action) => ({
-      ...state,
-      todos: state.todos.map((todo) =>
-        todo.id === action.payload ? { ...todo, done: !todo.done } : todo
-      ),
-    }),
+    [TOGGLE]: (state, { payload: id }) =>
+      produce(state, (draft) => {
+        const todo = draft.todos.find((todo) => todo.id === id);
+        todo.done = !todo.done;
+      }),
   },
   initialState
 );
