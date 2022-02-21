@@ -490,3 +490,14 @@ export default TodosContainer;
 
 
 ```
+
+---
+
+> ### MiddleWare
+
+> > middleware ? => 액션을 디스패치했을 때 리듀서에서 이를 처리하기에 앞서 사전에 지정된 작업을 실행한다.
+> > 미들웨어는 액션과 리듀서 사이의 중간자라고 볼 수 있다.
+> >
+> > 기본 구조는 store=>next=>action 형태로 이루어져 있다.
+
+---
