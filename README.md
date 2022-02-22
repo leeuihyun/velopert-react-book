@@ -501,3 +501,41 @@ export default TodosContainer;
 > > 기본 구조는 store=>next=>action 형태로 이루어져 있다.
 
 ---
+
+> ### redux-thunk
+
+> redux-thunk 는 리덕스를 사용하는 프로젝트에서 비동기 작업을 처리할 때 가장 기본적으로 사용하는 미들웨어이다.
+> Thunk란 특정 작업을 나중에 할 수 있도록 미루기 위해 함수 형태로 감싼 것을 의미한다.
+> ex ) const addNumber = (x) = >x+1;
+> addNumber(1);
+>
+> > 위와 같이 addNumber를 호출하면 바로 1+1 이 연산된다.
+> > But, 이러한 연산 작업을 나중에 미루려면 어떻게 해야 하는가 ?
+> > 아래 코드처럼 하면 특정 작업을 나중에 하도록 미룰 수 있다.
+
+```java script
+
+const addOne = (x) => x+1;
+function addOneThunk(x){
+  const thunk = () => addOne(x);
+  return thunk;
+}
+
+const go = addOneThunk(1);
+setTimeout(()=>{
+  const value = go(); //go가 실행되는 시점에 연산
+  console.log(value);
+}, 1000);
+
+```
+
+> ##### redux-thunk 라이브러리에서 사용할 수 있는 예제 thunk 함수.
+
+```java script
+
+const sampleThunk = () => (dispatch,getState)=>{
+  //현재 상태를 참조할 수 있고,
+  //새 액션을 디스패치할 수 도 있다.
+}
+
+```
