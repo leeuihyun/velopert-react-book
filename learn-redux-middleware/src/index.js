@@ -5,9 +5,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import rootReducer from "./modules";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-
-const store = createStore(rootReducer);
+import { createStore, applyMiddleware } from "redux";
+import { createLogger } from "redux-logger";
+const logger = createLogger();
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 ReactDOM.render(
   <Provider store={store}>
