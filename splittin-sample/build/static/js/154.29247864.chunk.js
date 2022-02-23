@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksplittin_sample=self.webpackChunksplittin_sample||[]).push([[154],{154:function(n,t,e){function s(){console.log("notify")}e.r(t),e.d(t,{default:function(){return s}})}}]);
+//# sourceMappingURL=154.29247864.chunk.js.map
