@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PostListPage = () => {
-  return <div>PostListPage</div>;
+  return <div>포스트 리스트 페이지</div>;
 };
 
 export default PostListPage;
