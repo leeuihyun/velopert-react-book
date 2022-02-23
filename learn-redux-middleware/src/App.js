@@ -1,7 +1,9 @@
 import React from "react";
 import CounterContainer from "./containers/CounterContainer";
+import SampleContainer from "./containers/SampleContainer";
+
 function App() {
-  return <CounterContainer></CounterContainer>;
+  return <SampleContainer></SampleContainer>;
 }
 
 export default App;
