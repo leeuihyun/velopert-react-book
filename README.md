@@ -539,3 +539,7 @@ const sampleThunk = () => (dispatch,getState)=>{
 }
 
 ```
+
+> ### 프론트엔드 순서
+
+> 1. yarn add react-router
