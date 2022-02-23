@@ -539,3 +539,11 @@ const sampleThunk = () => (dispatch,getState)=>{
 }
 
 ```
+
+---
+
+> ### 프로젝트를 처음 만들고 순서
+
+> > 1.  리액트 라우터를 프로젝트에 설치하고 적용한다. ($ yarn add react-router-dom)
+
+> >

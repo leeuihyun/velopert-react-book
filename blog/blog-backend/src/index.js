@@ -1,11 +1,5 @@
-import Router from 'koa-router';
-import posts from './posts';
-import auth from './auth';
+// 이 파일에서만 no-global-assign ESLint 옵션을 비활성화합니다
+/* eslint-disable no-global-assign */
 
-const api = new Router();
-
-api.use('/posts', posts.routes());
-api.use('/auth', auth.routes());
-
-// 라우터를 내보냅니다.
-export default api;
+require = require('esm')(module /*, options*/);
+module.exports = require('./main.js');
