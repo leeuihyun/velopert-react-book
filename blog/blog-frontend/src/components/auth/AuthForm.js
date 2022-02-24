@@ -42,18 +42,31 @@ const Footer = styled.div`
         }
     }
 `
+const textMap = {
+    login : '로그인',
+    register : '회원가입'
+}
 
-function AuthForm() {
+function AuthForm({type}) {
+    const text = textMap[type];
   return (
   <AuthFormBlock>
-      <h3>로그인</h3>
+      <h3>{text}</h3>
       <form>
           <StyledInput placeholder = "아이디" name = "username" autoComplete = "username"></StyledInput>
-          <StyledInput placeholder = "비밀번호" name = "password" autoComplete="new-password"></StyledInput>
-          <Button cyan fullWidth style = {{marginTop : '1rem'}}>로그인</Button>
+          <StyledInput placeholder = "비밀번호" name = "password" autoComplete="new-password" type = "password"></StyledInput>
+          {type === 'register' && (
+          <StyledInput placeholder = "비밀번호 확인" name = "passwordConfirm" autoComplete = "new-password" type = "password"></StyledInput>
+      )}
       </form>
+      
+      <Button cyan fullWidth style = {{marginTop : '1rem'}}>{text}</Button>
       <Footer>
-          <Link to = "/register">회원가입</Link>
+          {type === 'register' ? (
+              <Link to = '/login'>로그인</Link>
+          ) : (
+                <Link to = "/register">회원가입</Link>
+          )}    
       </Footer>
   </AuthFormBlock>)
 }
