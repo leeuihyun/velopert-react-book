@@ -50,7 +50,7 @@ function AuthForm() {
       <form>
           <StyledInput placeholder = "아이디" name = "username" autoComplete = "username"></StyledInput>
           <StyledInput placeholder = "비밀번호" name = "password" autoComplete="new-password"></StyledInput>
-          <Button cyan fullWidth>로그인</Button>
+          <Button cyan fullWidth style = {{marginTop : '1rem'}}>로그인</Button>
       </form>
       <Footer>
           <Link to = "/register">회원가입</Link>
