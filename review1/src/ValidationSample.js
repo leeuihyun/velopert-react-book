@@ -7,6 +7,7 @@ function ValidationSample() {
         console.log(e.target.value);
     }
     const onClick = e => {
+        inputRef.current.value ="";
         inputRef.current.focus();
     }
     return (
