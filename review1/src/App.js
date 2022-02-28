@@ -4,9 +4,10 @@ import EventPractice from './EventPractice';
 import ValidationSample from './ValidationSample';
 import SampleState from './SampleState';
 import Info from './Info';
+import Counter from './Counter';
 function App() {
   return (
-    <Info></Info>
+    <Counter></Counter>
   )
 }
 

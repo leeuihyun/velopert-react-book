@@ -19,6 +19,7 @@ const Info = () =>{
             nickname
         })
     })
+    //useEffect(()=>{},[name]) 이런식으로 useEffect를 설계하면 배열 안의 값인 name 값이 변경될 때만 useEffect가 실행된다.
   return (
     <div>
         <div>
