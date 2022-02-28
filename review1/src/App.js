@@ -3,10 +3,10 @@ import Say from './Say';
 import EventPractice from './EventPractice';
 import ValidationSample from './ValidationSample';
 import SampleState from './SampleState';
-
+import Info from './Info';
 function App() {
   return (
-    <SampleState></SampleState>
+    <Info></Info>
   )
 }
 
